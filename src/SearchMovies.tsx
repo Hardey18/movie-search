@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import MovieCard from './MovieCard';
+import NoMovies from './NoMovies';
 
 const SearchMovies = () => {
     const [query, setQuery] = useState('');
@@ -26,7 +27,8 @@ const SearchMovies = () => {
             </form>
             <div>
                 {movies.filter(movie => movie.poster_path).map(movie => (
-                    <MovieCard movie={movie} key={movie.id} />
+                    // <MovieCard movie={movie} key={movie.id} />
+                    !movie ? <NoMovies /> : <MovieCard movie={movie} key={movie.id} />
                 ))}
             </div>
         </>
